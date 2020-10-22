@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+		  
+		</div>
+		
+	</body>
+	<script type="text/javascript">
+		//如果函数体中只有一条语句，则可以省略{}
+		let app = (x,y) => console.log(x+y)
+		app(1,2)
+		
+		//如果函数的参数只有一个，则可以省略()
+		let app2 = x => console.log(x)
+		app2(3)
+		
+		//如果函数体中只有一条语句且还是return，则return可以省略
+		let app3 = function(x,y){
+			return x+y
+		}
+		console.log(app3(4,5))
+		
+		let app4 = (x,y) => x+y
+		console.log(app4(6,7))
+		
+		//函数体中只有一条语句且是return 且参数只有一个
+		let app5 = x => x+3
+		console.log(app5(8))
+		//麻烦写法
+		let app6 = function(x){
+			return x+3
+		}
+		console.log(app6(8))
+		
+		//如果函数没有参数，则()不能省略
+		let app7 = () => console.log('我真帅！')
+		app7()
+	</script>
+</html>

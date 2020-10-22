@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+		  <!-- 多个变量的显示依赖于一个变量的变化 -->
+		  <p @click="low_num">{{num}}</p>
+		  <button type="button" @click="low_num">减一</button>
+		  <button type="button" @click="add_num">加一</button>
+		  <p>十位： {{parseInt(num/10)}}</p>
+		  <p>个位： {{num%10}}</p>
+		  <hr>
+		  十位数字：<input type="number" v-model="shiwei" max="9" min="0">
+		  个位数字：<input type="number" v-model="gewei" max="9" min="0">
+		  <hr>
+		  结果：<b>{{shiwei*10+ +gewei}}</b>
+		  <hr>
+		  结果：<b>{{res}}</b>
+		</div>
+		
+	</body>
+	<script type="text/javascript">
+		new Vue({
+		el: '#app',
+		data: {
+			num:100,
+			shiwei:"",
+			gewei:'',
+		},
+		methods:{
+			low_num(){
+				this.num--;
+			},
+			add_num(){
+				this.num++;
+			},
+		},
+		computed:{
+			res(){
+				console.log('123123')
+				return this.shiwei * 10 + + this.gewei;
+			},
+		}
+		})
+	</script>
+</html>

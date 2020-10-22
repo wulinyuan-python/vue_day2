@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			这是父组件中的name:{{name}}
+			<hr>
+			<hehe @click='test'></hehe>
+		</div>
+		
+	</body>
+	<script type="text/javascript">
+		let zizu = {
+			template:`
+				<div>
+				这是子组件:
+				<button @click="clickBtn">按钮</button>
+				</div>
+			`,
+			methods:{
+				clickBtn(){
+					this.$emit('click','giao')
+				}
+			}
+		}
+		
+		
+		new Vue({
+		el: '#app',
+		data: {
+			name:'吕小布'
+		},
+		methods:{
+			test(zi_data) {
+			    console.log(zi_data);
+			    this.name = zi_data;
+			},
+		},
+		components:{
+			hehe:zizu
+		}
+		})
+	</script>
+</html>

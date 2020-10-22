@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<p>{{num}}</p>
+			<input type="button" value="加一" @click="add_num">
+			<input type="button" value="减一" @click="low_num">
+			<p>十位： {{shiwei}}</p>
+			<p>个位： {{gewei}}</p>
+		</div>
+		
+	</body>
+	<script type="text/javascript">
+		new Vue({
+		el: '#app',
+		data: {
+			num:100,
+			shiwei:"",
+			gewei:''
+		},
+		methods:{
+			low_num(){
+				this.num--;
+			},
+			add_num(){
+				this.num++;
+			},
+		},
+		//就是说所监听的data值发生变化，即触发监听事件
+		watch:{
+			num(){
+				this.shiwei = parseInt(this.num/10)
+				this.gewei = this.num %10
+			}
+		}
+		})
+	</script>
+</html>

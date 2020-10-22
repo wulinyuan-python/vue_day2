@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			.red {
+				color: red;
+			}
+			.green {
+				color: darkgreen;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<giao css='red' name='jack'>我是个组件哦</giao><br>
+			<giao css='green' name='james'>我是个组件哦</giao>
+		</div>
+		
+	</body>
+	<script type="text/javascript">
+		//组件中的template中只能有唯一一个根标签，不能有同级的标签
+		//组件的根标签可以不是div，但就是不能有兄弟标签
+		
+		//子组件
+		let zizu = {
+			template:`
+				<div>我的小组件哦!</div>
+			`,
+			// 可以在组件内接受组件标签传递过来的参数  从而使组件内部可以拥有动态的属性
+			// props可以理解为一个数组  里面是所有组件可以接收的参数,相当于参数名
+			// 可以将props理解为一个只读的data属性
+			props:['css':'name'],
+			created:function(){
+				console.log(this.name)
+			}
+		}
+		new Vue({
+		el: '#app',
+		data: {
+			
+		},
+		methods:{
+			
+		},
+		components:{
+			'giao':zizu
+		}
+		})
+	</script>
+</html>

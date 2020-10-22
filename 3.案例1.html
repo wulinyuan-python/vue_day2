@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+		  姓： <input type="text" v-model="xing"><br>
+		  名： <input type="text" v-model="ming"><br>
+		  <b>姓名： {{name}}</b>
+		  <hr >
+		  姓名： <input type="text" v-model="allname"><br>
+		  <b>姓：</b>{{firstname}}  <br>
+		  <b>名：</b>{{lastname}}
+		</div>
+		
+	</body>
+	<script type="text/javascript">
+		new Vue({
+		el: '#app',
+		data: {
+			xing:'',
+			ming:'',
+			
+			allname:'',
+			firstname:'',
+			lastname:''
+		},
+		computed:{
+			name(){
+				return this.xing +this.ming
+			}
+		},
+		watch:{
+			allname(){
+				if (this.allname.length==2){
+					this.firstname = this.allname[0]
+					this.lastname = this.allname[1]
+				}
+				if(this.allname.length==3){
+					this.firstname = this.allname[0]
+					this.lastname = this.allname[1]+this.allname[2]
+				}
+				if(this.allname.length>3){
+					this.firstname = this.allname[0]+this.allname[1]
+					this.lastname = this.allname[2]+this.allname[3]
+				}
+				
+			}
+		}
+		})
+	</script>
+</html>

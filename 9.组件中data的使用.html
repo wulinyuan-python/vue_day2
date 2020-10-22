@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<giao></giao>
+		</div>
+		
+	</body>
+	<script type="text/javascript">
+		let zu = {
+			template:`
+				<div>
+				俺是个组件
+				<br>
+				<span>俺是组件的span,{{name[0]}}-{{name[1]}}-{{name[2]}}</span>
+				<input type="button" value='点死我吧' @click="change">
+				</div>
+				
+			`,
+			data:function(){
+				return{
+					name:'武林源'
+				}
+			},
+			methods:{
+				change(){
+					alert()
+				}
+			}
+		}
+		Vue.component('giao',zu)
+		new Vue({
+		el: '#app',
+		data: {
+			
+		},
+		methods:{
+			
+		}
+		})
+	</script>
+</html>

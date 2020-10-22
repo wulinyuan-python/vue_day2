@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+		  
+		</div>
+		
+	</body>
+	<script type="text/javascript">
+		let user = {
+			username:'吕小布',
+			app:function(){
+				//当前this指向的是当前的user实例
+				console.log(this.username)
+			}
+		}
+		user.app()
+		
+		let boy = {
+			name : '武林源',
+			app1:function(){
+				//在回调函数中this的指向会被改变，不再指向当前boy实例
+				setTimeout(function(){
+					//获取不到this对象了，已经被改变了
+					console.log(this.name)
+				})
+			}
+		}
+		boy.app1()  //得不到结果
+		
+		let girl = {
+			name:'小红',
+			//回调函数中this指向会被改变
+			app:function(){
+				//在回调函数中使用箭头函数不会改变this指向,这里没有参数，()不能省略
+				setTimeout(()=>{
+					console.log(this.name)
+				})
+			}
+		}
+		girl.app()
+	</script>
+</html>

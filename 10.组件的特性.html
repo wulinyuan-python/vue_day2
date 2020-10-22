@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<giao></giao>
+			<h2>{{num}}</h2><input type="button" @click="low_num" value="减小数字">
+		</div>
+		
+	</body>
+	<script type="text/javascript">
+		let zu = {
+			template:`
+				<div>
+				俺是个组件
+				<br>
+				<span>俺是组件的span,{{num}}</span>
+				<input type="button" value='点死我吧' @click="low_num">
+				</div>
+				
+			`,
+			data:function(){
+				return{
+					num:20
+				}
+			},
+			methods:{
+				low_num(){
+					this.num--;
+				}
+			}
+		}
+		Vue.component('giao',zu)
+		new Vue({
+		el: '#app',
+		data: {
+			num:30
+		},
+		methods:{
+			low_num(){
+				this.num--;
+			}
+		}
+		})
+	</script>
+</html>
